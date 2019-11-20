@@ -1,3 +1,7 @@
+// Global Variables here
+let interface = document.getElementById("interface");
+
+// Basic functionality
 const add = (num1, num2) => {
   return num1 + num2;
 };
@@ -14,42 +18,38 @@ const divide = (num1, num2) => {
   return num1 / num2;
 };
 
-const operate = (operator, num1, num2) => {
+// Calls the above functions and updates the display. Currently only works for one equations with a single operator. Now works with multiple digits because the operators have space before and after the character and our split method only splits at the spaces.
+
+
+const operate = () => {
+  let input = interface.textContent;
+  let inputArray = input.split(" ");
+  let num1 = Number(inputArray[0]);
+  let operator = inputArray[1];
+  let num2 = Number(inputArray[2]);
+
   if (operator === "+") {
-    return add(num1, num2)
+    let solution = add(num1, num2);
+    interface.textContent = solution;
   } else if (operator === "-") {
-    return subtract(num1, num2)
+    let solution = subtract(num1, num2)
+    interface.textContent = solution;
   } else if (operator === "x") {
-    return multiply(num1, num2)
+    let solution = multiply(num1, num2)
+    interface.textContent = solution;
   } else if (operator === "/") {
-    return divide(num1, num2)
+    let solution = divide(num1, num2)
+    interface.textContent = solution; 
   }
 };
-
-
-
-let interface = document.getElementById("interface");
 
 // Clear functionality
 
 const clearInput = () => {
   interface.textContent = ""
 }
-
 document.getElementById("clear").addEventListener("click", clearInput);
  
-// Numbered button functionality
-let button1 = document.querySelector(".button1");
-let button2 = document.querySelector(".button2");
-let button3 = document.querySelector(".button3");
-let button4 = document.querySelector(".button4");
-let button5 = document.querySelector(".button5");
-let button6 = document.querySelector(".button6");
-let button7 = document.querySelector(".button7");
-let button8 = document.querySelector(".button8");
-let button9 = document.querySelector(".button9");
-let button0 = document.querySelector(".button0");
-
 // Visual Button Input
 
 let inputButtons = Array.from(document.querySelectorAll(".inputButton"));
@@ -58,12 +58,41 @@ const buttonInput = () => {
   inputButtons.forEach(button => {
     let buttonOutput = button.innerHTML;
     button.addEventListener("click", function() {
-      interface.textContent += buttonOutput
+      interface.textContent += buttonOutput;
     })
   })
 }
 
 buttonInput();
+
+// Functionality to account for longer equations
+
+const operators = Array.from(document.querySelectorAll(".operator"));
+const operatorInput = () => {
+  operators.forEach(operator => {
+    operator.addEventListener("click", function() {
+      let input = interface.textContent;
+      let inputArray = input.split(" ")
+      let buttonOutput = operator.innerHTML;
+      if (inputArray.length > 3) {
+        operate()
+        interface.textContent += buttonOutput;
+      }
+    })
+  })
+}
+
+operatorInput();
+
+
+
+
+
+// Adding the event listener to the equal button
+
+let equalButton = document.querySelector(".equalButton");
+equalButton.addEventListener("click", operate);
+
 
 
 
