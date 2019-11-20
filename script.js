@@ -1,5 +1,6 @@
 // Global Variables here
 let interface = document.getElementById("interface");
+let wholeEquation = document.getElementById("wholeEquationInterface");
 
 // Basic functionality
 const add = (num1, num2) => {
@@ -28,6 +29,11 @@ const operate = () => {
   let operator = inputArray[1];
   let num2 = Number(inputArray[2]);
 
+  // If the user tries to divide by 0
+  if (num1 === 0 && operator === "/") {
+    alert("Cannot divide by 0")
+  };
+
   if (operator === "+") {
     let solution = add(num1, num2);
     interface.textContent = solution;
@@ -40,13 +46,14 @@ const operate = () => {
   } else if (operator === "/") {
     let solution = divide(num1, num2)
     interface.textContent = solution; 
-  }
+  } 
 };
 
 // Clear functionality
 
 const clearInput = () => {
-  interface.textContent = ""
+  interface.textContent = "";
+  wholeEquation.textContent = "";
 }
 document.getElementById("clear").addEventListener("click", clearInput);
  
@@ -59,6 +66,7 @@ const buttonInput = () => {
     let buttonOutput = button.innerHTML;
     button.addEventListener("click", function() {
       interface.textContent += buttonOutput;
+      wholeEquation.textContent += buttonOutput;
     })
   })
 }

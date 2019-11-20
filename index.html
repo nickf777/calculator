@@ -9,26 +9,33 @@
 </head>
 
 <body>
-  <div class="gridContainer">
-    <button class="inputButton">1</button>
-    <button class="inputButton">2</button>
-    <button class="inputButton">3</button>
-    <button class="inputButton">4</button>
-    <button class="inputButton">5</button>
-    <button class="inputButton">6</button>
-    <button class="inputButton">7</button>
-    <button class="inputButton">8</button>
-    <button class="inputButton">9</button>
-    <button class="inputButton">0</button>
-    <button class="inputButton operator" > + </button>
-    <button class="inputButton operator"> - </button>
-    <button class="inputButton operator"> x </button>
-    <button class="inputButton operator"> / </button>
-    <button class="equalButton"> = </button>
-    <button id = "clear">clear</button>
-    <div class="display">
-      <p id = "interface"></p>
-    </div>
+  <h1>Nick's Calculator</h1>
+  <div class="flexContainer">
+    <div class="gridContainer">
+      <button class="inputButton button1">1</button>
+      <button class="inputButton button2">2</button>
+      <button class="inputButton button3">3</button>
+      <button class="inputButton button4">4</button>
+      <button class="inputButton button5">5</button>
+      <button class="inputButton button6">6</button>
+      <button class="inputButton button7">7</button>
+      <button class="inputButton button8">8</button>
+      <button class="inputButton button9">9</button>
+      <button class="inputButton button0">0</button>
+      <button class="inputButton buttonPeriod">.</button>
+      <button class="inputButton operator buttonPlus" > + </button>
+      <button class="inputButton operator buttonMinus"> - </button>
+      <button class="inputButton operator buttonTimes"> x </button>
+      <button class="inputButton operator buttonDivide"> / </button>
+      <button class="equalButton operator buttonEquals"> = </button>
+      <button id = "clear" class = "ac">AC</button>
+      <div class="display">
+        <p id = "interface"></p>
+      </div>
+      <div class="wholeEquation">
+        <p id="wholeEquationInterface"></p>
+      </div>
+  </div>
 </div>
   <script src = "./script.js"></script>
 </body>
