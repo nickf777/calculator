@@ -107,6 +107,8 @@ h1 {
   padding-left: 10px;
   grid-area: wholeEquation;
   background: rgb(253, 255, 240);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 .operator {
@@ -117,14 +119,21 @@ h1 {
   margin: 0;
   background: rgb(240, 119, 19);
   grid-area: buttonClear;
+  border-bottom-left-radius: 3px;
+}
+
+.backspace {
+  padding: 10px 0;
+  margin: 0;
+  background: rgb(240, 119, 19);
+  grid-area: backspace;
+  border-bottom-right-radius: 3px;
 }
 .gridContainer {
   display: grid;
   width: 300px;
   grid-template-columns: calc(300px - 1/4);
-  grid-template-rows: auto;
-  border: 1px solid black;
-  
+  grid-template-rows: auto;  
   box-shadow: 10px 10px 30px white;
   grid-template-areas: 
     "wholeEquation wholeEquation wholeEquation wholeEquation"
@@ -133,7 +142,7 @@ h1 {
     "button4 button5 button6 buttonMinus"
     "button1 button2 button3 buttonTimes"
     "button0 buttonPeriod buttonEquals buttonDivide"
-    "buttonClear buttonClear buttonClear buttonClear"
+    "buttonClear buttonClear backspace backspace"
   ;
 }
 
