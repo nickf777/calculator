@@ -74,23 +74,22 @@ const buttonInput = () => {
 buttonInput();
 
 // Backspace Functionality
-
+let buttonBackspace = document.getElementById("backspace");
 const backspace = () => {
-  let buttonBackspace = document.getElementById("backspace");
-  buttonBackspace.addEventListener("click", function() {
     let input = interface.textContent;
     let individualInputArray = input.split("");
     individualInputArray.pop();
     interface.textContent = individualInputArray.join("");
     wholeEquation.textContent = individualInputArray.join("");
-  })
-}
+  };
 
-backspace();
+  buttonBackspace.addEventListener("click", backspace);
+
 
 // Functionality to account for longer equations
 
 const operators = Array.from(document.querySelectorAll(".operator"));
+
 const operatorInput = () => {
   operators.forEach(operator => {
     operator.addEventListener("click", function() {
@@ -106,10 +105,6 @@ const operatorInput = () => {
 }
 
 operatorInput();
-
-
-
-
 
 // Adding the event listener to the equal button
 
